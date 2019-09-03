@@ -114,17 +114,17 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
     // método responsavel pela remoção de usuários
-    private void remover(){
+    private void remover() {
         int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover esse usuário?", "Atenção!", JOptionPane.YES_NO_OPTION);
-        if(confirma == JOptionPane.YES_OPTION){
+        if (confirma == JOptionPane.YES_OPTION) {
             String sql = "delete from tbusuarios where iduser=?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, txtUsuId.getText());
                 int apagado = pst.executeUpdate();
-                if(apagado > 0){
+                if (apagado > 0) {
                     JOptionPane.showMessageDialog(null, "Usuário removido com sucesso!");
                     txtUsuId.setText(null);
                     txtUsuNome.setText(null);
